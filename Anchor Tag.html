@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TEST FILE</title>
+</head>
+<body>
+    <h1>This is a Facebook Link</h1>
+    <p>Facebook is the social media application</p>
+    <p>Owner of Facebook is Mark</p>
+    
+    <p id="para">I am a Paragraph</p>
+    <input value="Click" type="submit">
+    
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script>
+ (function ($) {
+    var fb = $("body");
+    fb.html(fb.html().replace(/facebook/ig, '<a href="http://www.facebook.com/">facebook</a>'));
+    })(jQuery);
+
+    $(":submit").click(function () {
+    $("#para").prepend(" <p>BEFORE New Content</p> ");
+    $("#para").append(" AFTER New Content ");
+    $("li").eq(0).after('<li>1.5</li>');
+
+    var a = $('#para').text().split(' ');
+    var b = a.indexOf("a");
+    a.splice(b+1, 0,'NEW CONTENT IS HERE' );
+    $('#para').text(a.join(' '));
+});
+</script>
+</body>
+</html>
